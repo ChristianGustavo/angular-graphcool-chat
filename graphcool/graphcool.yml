@@ -19,6 +19,31 @@ types: ./types.graphql
 
 
 functions:
+
+# GraphQL types
+types: ./types.graphql
+
+# functions
+# functions:
+#   signup:
+#     type: resolver
+#     schema: src/signup.graphql
+#     handler:
+#       code: src/signup.ts
+
+#   authenticate:
+#     type: resolver
+#     schema: src/authenticate.graphql
+#     handler:
+#       code: src/authenticate.ts
+
+#   loggedInUser:
+#     type: resolver
+#     schema: src/loggedInUser.graphql
+#     handler:
+#       code: src/loggedInUser.ts
+
+
   hello:
     handler:
       code: src/hello.js
