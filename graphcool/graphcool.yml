@@ -26,11 +26,11 @@ functions:
     handler:
       code: src/email-password/signup.ts
 
-#   authenticate:
-#     type: resolver
-#     schema: src/authenticate.graphql
-#     handler:
-#       code: src/authenticate.ts
+  authenticate:
+    type: resolver
+    schema: src/email-password/authenticate.graphql
+    handler:
+      code: src/email-password/authenticate.ts
 
 #   loggedInUser:
 #     type: resolver
