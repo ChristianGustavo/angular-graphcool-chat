@@ -3,7 +3,7 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from
 import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
-import { AuthService } from './../../../core/services/auth.service';
+import { AuthService } from '../core/services/auth.service';
 
 @Injectable()
 export class AutoLoginGuard implements CanActivate {
@@ -17,11 +17,10 @@ export class AutoLoginGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> {
-    // return this.authService.isAuthenticated
-    //   .pipe(
-    //     tap(is => is ? this.router.navigate(['/dashboard']) : null),
-    //     map(is => !is)
-    //   );
-    return of(true);
+    return this.authService.isAuthenticated
+      .pipe(
+        tap(is => is ? this.router.navigate(['/dashboard']) : null),
+        map(is => !is)
+      );
   }
 }
