@@ -30,7 +30,7 @@ export class UserService {
   getUserById(id: string): Observable<User> {
     return this.apollo.query<UserQuery>({
       query: GET_USER_BY_ID_QUERY,
-      variables: { idUser: id }
+      variables: { userId: id }
     }).pipe(
       map(res => res.data.User)
     );
