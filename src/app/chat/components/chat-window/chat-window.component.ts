@@ -25,7 +25,7 @@ export class ChatWindowComponent implements OnInit, OnDestroy {
         .pipe(
           map(routeData => this.chat = routeData.chat)
         )
-        .subscribe(chat => console.log('Chat: ', chat))
+        .subscribe()
     );
   }
 
