@@ -17,15 +17,18 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import { NoRecordComponent } from './components/no-record/no-record.component';
+import { AvatarComponent } from './components/avatar/avatar.component';
 
 @NgModule({
   declarations: [
+    AvatarComponent,
     NoRecordComponent
   ],
   imports: [
     MatIconModule
   ],
   exports: [
+    AvatarComponent,
     CommonModule,
     FormsModule,
     MatButtonModule,
