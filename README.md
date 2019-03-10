@@ -1,27 +1,55 @@
-# AngularGraphcoolChat
+# Angular Graphcool Chat
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
+Este é o repositório do projeto baseado no [Curso completo de Angular 6 (+Apollo, GraphQL e Graphcool)
+](https://www.udemy.com/curso-completo-de-angular-apollo-e-graphql/?couponCode=ANGULARGITHUB) disponível na Udemy.com.
 
-## Development server
+![Curso completo de Angular 6 (+Apollo, GraphQL e Graphcool)](static/capa-oficial-curso.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+A aplicação é um Chat Realtime desenvolvido com as seguintes tecnologias e recursos:
 
-## Code scaffolding
+* Client Side
+  * Angular (6+)
+  * RxJS
+  * Apollo Client
+  * Apollo Angular
+  * Apollo Cache InMemory
+  * Apollo Cache Persist
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Server Side
+  * Graphcool (BaaS)
+  * API GraphQL (Queries, Mutations e Realtime Subscriptions)
+  * Regras de permissão de acesso
+  * Upload de arquivos
 
-## Build
+## Teste localmente
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Se quiser testar o projeto localmente basta seguir estes passos:
 
-## Running unit tests
+1. Clone o repositório
+```bash
+git clone git@github.com:plinionaves/angular-graphcool-chat.git
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Acesse o diretório criado para o projeto
+```bash
+cd angular-graphcool-chat
+```
 
-## Running end-to-end tests
+3. Instale as dependências:
+```bash
+npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+4. Execute
+```bash
+ng serve -o
+```
+*É necessário ter o [Angular CLI](https://github.com/angular/angular-cli) instalado para rodar o comando acima*
 
-## Further help
+## Contato
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Desenvolvido por: [Christian Gustavo](https://www.linkedin.com/in/christian-gustavo-123261174/)
+
+* Email: [christiangomes00@gmail.com](mailto:christiangomes00@gmail.com)
+* Github: [github.com/plinionaves](https://github.com/ChristianGustavo)
+* Linkedin: [https://www.linkedin.com/in/christian-gustavo-123261174/](https://www.linkedin.com/in/christian-gustavo-123261174/)
