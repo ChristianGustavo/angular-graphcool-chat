@@ -3,8 +3,6 @@
 Este é o repositório do projeto baseado no [Curso completo de Angular 6 (+Apollo, GraphQL e Graphcool)
 ](https://www.udemy.com/curso-completo-de-angular-apollo-e-graphql/?couponCode=ANGULARGITHUB) disponível na Udemy.com.
 
-![Curso completo de Angular 6 (+Apollo, GraphQL e Graphcool)](static/capa-oficial-curso.png)
-
 A aplicação é um Chat Realtime desenvolvido com as seguintes tecnologias e recursos:
 
 * Client Side
@@ -27,7 +25,7 @@ Se quiser testar o projeto localmente basta seguir estes passos:
 
 1. Clone o repositório
 ```bash
-git clone git@github.com:plinionaves/angular-graphcool-chat.git
+git clone https://github.com/ChristianGustavo/angular-graphcool-chat.git
 ```
 
 2. Acesse o diretório criado para o projeto
