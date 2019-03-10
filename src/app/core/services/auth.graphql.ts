@@ -15,8 +15,8 @@ export const LOGGED_IN_USER_QUERY = gql`
 export const AUTHENTICATE_USER_MUTATION = gql`
     mutation AuthenticateUserMutation($email: String!, $password: String!) {
         authenticateUser(email: $email, password: $password) {
-            id
-            token
+          id
+          token
         }
     }
 `;
@@ -24,8 +24,8 @@ export const AUTHENTICATE_USER_MUTATION = gql`
 export const SIGNUP_USER_MUTATION = gql`
     mutation SignupUserMutation($name: String!, $email: String!, $password: String!) {
         signupUser(name: $name, email: $email, password: $password) {
-            id
-            token
+          id
+          token
         }
     }
 `;
