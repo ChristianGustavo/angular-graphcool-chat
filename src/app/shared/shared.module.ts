@@ -23,10 +23,10 @@ import { NoRecordComponent } from './components/no-record/no-record.component';
 @NgModule({
   declarations: [
     AvatarComponent,
-    CommonModule,
     NoRecordComponent
   ],
   imports: [
+    CommonModule,
     MatIconModule
   ],
   exports: [
