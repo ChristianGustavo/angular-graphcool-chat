@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { Observable, Subscription, of } from 'rxjs';
@@ -7,6 +7,7 @@ import { map, mergeMap, tap, take } from 'rxjs/operators';
 import { AuthService } from './../../../core/services/auth.service';
 import { BaseComponent } from './../../../shared/components/base.component';
 import { Chat } from '../../models/chat.model';
+import { ChatMessageComponent } from '../chat-message/chat-message.component';
 import { ChatService } from '../../services/chat.service';
 import { Message } from './../../models/message.model';
 import { MessageService } from '../../services/message.service';
@@ -18,13 +19,15 @@ import { UserService } from './../../../core/services/user.service';
   templateUrl: './chat-window.component.html',
   styleUrls: ['./chat-window.component.scss']
 })
-export class ChatWindowComponent extends BaseComponent<Message> implements OnInit, OnDestroy {
+export class ChatWindowComponent extends BaseComponent<Message> implements AfterViewInit, OnInit, OnDestroy {
 
   chat: Chat;
   messages$: Observable<Message[]>;
   newMessage = '';
   recipientId: string = null;
   alreadyLoadedMessages = false;
+  @ViewChild('content') private content: ElementRef;
+  @ViewChildren(ChatMessageComponent) private messagesQueryList: QueryList<ChatMessageComponent>;
   private subscriptions: Subscription[] = [];
 
   constructor(
@@ -62,6 +65,14 @@ export class ChatWindowComponent extends BaseComponent<Message> implements OnIni
           })
         )
         .subscribe()
+    );
+  }
+
+  ngAfterViewInit(): void {
+    this.subscriptions.push(
+      this.messagesQueryList.changes.subscribe(() => {
+        this.scrollToBottom('smooth');
+      })
     );
   }
 
@@ -109,6 +120,12 @@ export class ChatWindowComponent extends BaseComponent<Message> implements OnIni
           this.sendMessage();
         })
       ).subscribe();
+  }
+
+  private scrollToBottom(behavior: string = 'auto', block: string = 'end'): void {
+    setTimeout(() => {
+      this.content.nativeElement.scrollIntoView({ behavior, block });
+    }, 0);
   }
 
   ngOnDestroy(): void {
