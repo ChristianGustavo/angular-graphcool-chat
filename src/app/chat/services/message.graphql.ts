@@ -70,6 +70,6 @@ export const USER_MESSAGES_SUBSCRIPTION = gql`
       ...MessageFragment
       }
     }
-    ${MessageFragment}
   }
+  ${MessageFragment}
 `;

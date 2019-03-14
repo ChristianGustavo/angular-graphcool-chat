@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
-import { Apollo } from 'apollo-angular';
+import { Apollo, QueryRef } from 'apollo-angular';
 import { DataProxy } from 'apollo-cache';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -13,6 +13,7 @@ import {
   AllChatsQuery,
   ChatQuery
 } from './chat.graphql';
+import { USER_MESSAGES_SUBSCRIPTION } from './message.graphql';
 import { Chat } from './../models/chat.model';
 
 @Injectable({
@@ -21,6 +22,7 @@ import { Chat } from './../models/chat.model';
 export class ChatService {
 
   chats$: Observable<Chat[]>;
+  private queryRef: QueryRef<AllChatsQuery>;
   private subscriptions: Subscription[] = [];
 
   constructor(
@@ -40,12 +42,24 @@ export class ChatService {
   }
 
   getUserChats(): Observable<Chat[]> {
-    return this.apollo.watchQuery<AllChatsQuery>({
+    this.queryRef = this.apollo.watchQuery<AllChatsQuery>({
       query: USER_CHATS_QUERY,
       variables: {
         loggedUserId: this.authService.authUser.id
       }
-    }).valueChanges
+    });
+
+    this.queryRef.subscribeToMore({
+      document: USER_MESSAGES_SUBSCRIPTION,
+      variables: { loggedUserId: this.authService.authUser.id },
+      updateQuery: (previous, response) => {
+        console.log('Previous: ', previous);
+        console.log('Response: ', response);
+        return previous;
+      }
+    });
+
+    return this.queryRef.valueChanges
       .pipe(
         map(res => res.data.allChats),
         map((chats: Chat[]) => {
