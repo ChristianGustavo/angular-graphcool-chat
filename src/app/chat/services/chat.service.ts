@@ -15,6 +15,7 @@ import {
 } from './chat.graphql';
 import { USER_MESSAGES_SUBSCRIPTION } from './message.graphql';
 import { Chat } from './../models/chat.model';
+import { Message } from './../models/message.model';
 
 @Injectable({
   providedIn: 'root'
@@ -52,9 +53,25 @@ export class ChatService {
     this.queryRef.subscribeToMore({
       document: USER_MESSAGES_SUBSCRIPTION,
       variables: { loggedUserId: this.authService.authUser.id },
-      updateQuery: (previous, response) => {
-        console.log('Previous: ', previous);
-        console.log('Response: ', response);
+      updateQuery: (previous, { subscriptionData }): AllChatsQuery => {
+        const newMessage: Message = subscriptionData.data.Message.node;
+
+        const chatToUpdateIndex: number =
+          (previous.allChats)
+            ? previous.allChats.findIndex(chat => chat.id === newMessage.chat.id)
+            : -1;
+
+        if (chatToUpdateIndex > -1) {
+          const newAllChats = [...previous.allChats];
+          const chatToUpdate: Chat = Object.assign({}, newAllChats[chatToUpdateIndex]);
+          chatToUpdate.messages = [newMessage];
+          newAllChats[chatToUpdateIndex] = chatToUpdate;
+          return {
+            ...previous,
+            allChats: newAllChats
+          };
+        }
+
         return previous;
       }
     });
