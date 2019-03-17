@@ -7,6 +7,7 @@ import { ChatTabComponent } from './components/chat-tab/chat-tab.component';
 import { ChatUsersComponent } from './components/chat-users/chat-users.component';
 import { ChatWindowComponent } from './components/chat-window/chat-window.component';
 import { SharedModule } from '../shared/shared.module';
+import { ChatAddGroupComponent } from './components/chat-add-group/chat-add-group.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { SharedModule } from '../shared/shared.module';
     ChatTabComponent,
     ChatUsersComponent,
     ChatWindowComponent,
+    ChatAddGroupComponent,
   ]
 })
 export class ChatModule { }
