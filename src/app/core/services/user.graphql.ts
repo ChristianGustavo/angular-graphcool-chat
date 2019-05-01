@@ -1,7 +1,8 @@
+import { DocumentNode } from 'graphql';
 import gql from 'graphql-tag';
 
+import { FileFragment } from './file.graphql';
 import { User } from '../models/user.model';
-import { DocumentNode } from 'graphql';
 
 export interface AllUsersQuery {
   allUsers: User[];
@@ -17,7 +18,11 @@ const UserFragment = gql`
     name
     email
     createdAt
+    photo {
+      ...FileFragment
+    }
   }
+  ${FileFragment}
 `;
 
 export const ALL_USERS_QUERY = gql`
