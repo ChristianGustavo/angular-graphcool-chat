@@ -12,7 +12,7 @@
   },
   "now": {
     "name": "angular-graphcool-chat",
-    "alias": "angular-graphcool-chat",
+    "alias": "angular-graphcool-chat-deploy",
     "static": {
       "rewrites": [
         {
