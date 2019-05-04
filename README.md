@@ -3,6 +3,8 @@
 Este é o repositório do projeto baseado no [Curso completo de Angular 6 (+Apollo, GraphQL e Graphcool)
 ](https://www.udemy.com/curso-completo-de-angular-apollo-e-graphql/?couponCode=ANGULARGITHUB) disponível na Udemy.com.
 
+Pode ser acessada clicando [aqui](https://angular-graphcool-chat-deploy.now.sh), está publicada no Zeit Now.
+
 A aplicação é um Chat Realtime desenvolvido com as seguintes tecnologias e recursos:
 
 * Client Side
