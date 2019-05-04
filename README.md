@@ -51,5 +51,5 @@ ng serve -o
 Desenvolvido por: [Christian Gustavo](https://www.linkedin.com/in/christian-gustavo-123261174/)
 
 * Email: [christiangomes00@gmail.com](mailto:christiangomes00@gmail.com)
-* Github: [github.com/plinionaves](https://github.com/ChristianGustavo)
+* Github: [github.com/ChristianGustavo](https://github.com/ChristianGustavo)
 * Linkedin: [https://www.linkedin.com/in/christian-gustavo-123261174/](https://www.linkedin.com/in/christian-gustavo-123261174/)
