@@ -37,6 +37,7 @@
     "rxjs": "~6.3.3",
     "smoothscroll-polyfill": "0.4.3",
     "subscriptions-transport-ws": "0.9.14",
+    "terser": "^3.14.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },
